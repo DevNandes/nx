@@ -1,0 +1,30 @@
+[req]
+default_bits = 2048
+encrypt_key  = no
+default_md   = sha256
+prompt       = no
+utf8         = yes
+
+distinguished_name = req_distinguished_name
+
+req_extensions = v3_req
+
+[req_distinguished_name]
+C  = BR
+ST = Parana
+L  = Curitiba
+O  = Renault
+OU = DevNandes
+CN = CertificadoAppsRenault
+
+[v3_req]
+#basicConstraints     = CA:TRUE
+subjectKeyIdentifier = hash
+keyUsage             = digitalSignature, keyEncipherment
+extendedKeyUsage     = clientAuth, serverAuth
+subjectAltName       = @alt_names
+
+[alt_names]
+IP.1 = 127.0.0.1
+DNS.1 = renault_risk
+DNS.2 = rws
